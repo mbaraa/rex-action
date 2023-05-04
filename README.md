@@ -5,7 +5,7 @@ Redeploy docker compose containers after git push
 ### Example usage:
 
 ```yaml
-uses: actions/rex
+uses: mbaraa/rex-action@v0.3
 with:
     server-url: "example.com"
     token: ${{ secrets.REX_TOKEN }}
