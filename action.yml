@@ -1,0 +1,22 @@
+name: rex
+author: Baraa Al-Masri
+description: Depoly your repo onto your server using docker compose on push or merge
+runs:
+  using: node16
+  main: index.js
+inputs:
+  server-url:
+    description: "The url of the server where you've hosted your Rex instance"
+    required: true
+  token:
+    description: "Rex token, that's set on the server"
+    required: true
+  repo-name:
+    description: "The repo that will be deployed using docker compose"
+    required: true
+
+outputs:
+  status:
+    description: "Build status, duh"
+  badge:
+    description: "Build badge, do I have to say it again?"
