@@ -1,4 +1,4 @@
-name: rex
+name: rex-213
 author: Baraa Al-Masri
 description: Depoly your repo onto your server using docker compose on push or merge
 runs:
