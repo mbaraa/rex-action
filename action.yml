@@ -1,6 +1,9 @@
 name: rex-213
 author: Baraa Al-Masri
 description: Depoly your repo onto your server using docker compose on push or merge
+branding:
+  icon: activity
+  color: blue
 runs:
   using: node16
   main: index.js
@@ -14,7 +17,6 @@ inputs:
   repo-name:
     description: "The repo that will be deployed using docker compose"
     required: true
-
 outputs:
   status:
     description: "Build status, duh"
