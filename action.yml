@@ -1,4 +1,4 @@
-name: rex-7567
+name: rex7567
 author: Baraa Al-Masri
 description: Depoly your repo onto your server using docker compose on push or merge
 branding:
