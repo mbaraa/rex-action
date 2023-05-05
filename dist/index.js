@@ -9434,6 +9434,11 @@ try {
   const token = core.getInput("token");
   const repoName = core.getInput("repo-name");
   console.log(`Deploying ${repoName} using Rex`);
+
+  console.log(`token: ${token}`);
+  console.log(`serverURL: ${serverURL}`);
+  console.log(`repoName: ${repoName}`);
+
   getBuildOutput(serverURL, repoName, token, (result) => {
     if (result && result !== "error") {
       core.setOutput("status", result);
