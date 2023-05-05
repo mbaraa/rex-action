@@ -1,5 +1,6 @@
 "use strict";
 const core = require("@actions/core");
+const axios = require("axios");
 
 /**
  * @param{string} serverURL
@@ -9,18 +10,17 @@ const core = require("@actions/core");
  *
  */
 function getBuildOutput(serverURL, repoName, rexToken, resultFunc) {
-  fetch(`${serverURL}/deploy/?name=${repoName}`, {
-    method: "GET",
-    headers: {
-      Authorization: rexToken,
-    },
-  })
-    .then((resp) => resp.text())
-    .then((text) => {
-      resultFunc(text);
+  axios
+    .get(`${serverURL}/deploy/?name=${repoName}`, {
+      headers: {
+        Authorization: rexToken,
+      },
     })
-    .catch(() => {
-      resultFunc("error");
+    .then((resp) => {
+      resultFunc(resp.data);
+    })
+    .catch((err) => {
+      resultFunc(err);
     });
 }
 
