@@ -9415,8 +9415,8 @@ function getBuildOutput(serverURL, repoName, rexToken, resultFunc) {
     .then((resp) => {
       resultFunc(resp.data);
     })
-    .catch((err) => {
-      resultFunc(err);
+    .catch(() => {
+      resultFunc("error");
     });
 }
 
@@ -9437,6 +9437,7 @@ try {
   getBuildOutput(serverURL, repoName, token, (result) => {
     if (result && result !== "error") {
       core.setOutput("status", result);
+      console.log(`Deploying ${repoName} was successful`);
     } else {
       core.setFailed("Build faild!");
     }
