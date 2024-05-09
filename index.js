@@ -41,10 +41,12 @@ try {
 
   getBuildOutput(serverURL, repoName, token, (result) => {
     if (result && result !== "error") {
-      core.setOutput("status", result);
+      core.setOutput("Build succeeded");
       console.log(`Deploying ${repoName} was successful`);
+      console.log("Build logs:");
+      console.log(result);
     } else {
-      core.setFailed("Build faild!");
+      core.setFailed("Build failed!");
     }
   });
 } catch (err) {
