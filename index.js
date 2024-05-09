@@ -24,15 +24,6 @@ function getBuildOutput(serverURL, repoName, rexToken, resultFunc) {
     });
 }
 
-/**
- * @param{string} serverURL
- * @param{string} repoName
- * @param{string} rexToken
- * @param{() => void} resultFunc
- *
- */
-function getBuildBadge(serverURL, repoName, rexToken, resultFunc) {}
-
 try {
   const serverURL = core.getInput("server-url");
   const token = core.getInput("token");
