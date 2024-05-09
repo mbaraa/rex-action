@@ -59,3 +59,7 @@ jobs:
 ```
 
 3.  Do a push and see the magic happen
+
+### Note:
+
+This action was generated using [this](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action) doc.
