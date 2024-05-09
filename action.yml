@@ -6,7 +6,7 @@ branding:
   color: blue
 runs:
   using: node20
-  main: "dist/index.js"
+  main: index.js
 inputs:
   server-url:
     description: "The url of the server where you've hosted your Rex instance"
