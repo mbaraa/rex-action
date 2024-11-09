@@ -18,7 +18,10 @@ inputs:
     description: "The repo that will be deployed using docker compose"
     required: true
   commit-sha:
-    description: "The deployement's commit's SHA"
+    description: "The deployment's commit's SHA"
+    required: false
+  latest-tag:
+    description: "The repo's latest tag at the time of the deployment"
     required: false
 outputs:
   status:

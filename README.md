@@ -58,6 +58,8 @@ jobs:
           repo-name: repoName
           # commit-sha is optional :)
           commit-sha: ${{ github.sha }}
+          # latest-tag is optional :)
+          latest-tag: ${{ github.ref }}
 ```
 
 3.  Do a push and see the magic happen
