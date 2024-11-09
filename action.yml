@@ -17,6 +17,9 @@ inputs:
   repo-name:
     description: "The repo that will be deployed using docker compose"
     required: true
+  commit-sha:
+    description: "The deployement's commit's SHA"
+    required: false
 outputs:
   status:
     description: "Build status, duh"
