@@ -23,6 +23,9 @@ inputs:
   latest-tag:
     description: "The repo's latest tag at the time of the deployment"
     required: false
+  compose-file-name:
+    description: "Custom path for docker compose's file"
+    required: false
 outputs:
   status:
     description: "Build status, duh"

@@ -7,6 +7,7 @@ const axios = require("axios");
  * @param{string} repoName
  * @param{string} commitSha
  * @param{string} latestTag
+ * @param{string} composeFileName
  * @param{string} rexToken
  * @param{() => void} resultFunc
  *
@@ -16,12 +17,13 @@ function getBuildOutput(
   repoName,
   commitSha,
   latestTag,
+  composeFileName,
   rexToken,
   resultFunc,
 ) {
   axios
     .get(
-      `${serverURL}/deploy/?name=${repoName}&commit_sha=${commitSha}&latest_tag=${latestTag}`,
+      `${serverURL}/deploy/?name=${repoName}&commit_sha=${commitSha}&latest_tag=${latestTag}&compose_file_name=${composeFileName}`,
       {
         headers: {
           Authorization: rexToken,
@@ -42,18 +44,27 @@ try {
   const commitSha = core.getInput("commit-sha");
   const repoName = core.getInput("repo-name");
   const latestTag = core.getInput("latest-tag");
+  const composeFileName = core.getInput("compose-file-name");
   console.log(`Deploying ${repoName} using Rex`);
 
-  getBuildOutput(serverURL, repoName, commitSha, latestTag, token, (result) => {
-    if (result && result !== "error") {
-      core.setOutput("Build succeeded");
-      console.log(`Deploying ${repoName} was successful`);
-      console.log("Build logs:");
-      console.log(result);
-    } else {
-      core.setFailed("Build failed!");
-    }
-  });
+  getBuildOutput(
+    serverURL,
+    repoName,
+    commitSha,
+    latestTag,
+    composeFileName,
+    token,
+    (result) => {
+      if (result && result !== "error") {
+        core.setOutput("Build succeeded");
+        console.log(`Deploying ${repoName} was successful`);
+        console.log("Build logs:");
+        console.log(result);
+      } else {
+        core.setFailed("Build failed!");
+      }
+    },
+  );
 } catch (err) {
   core.setFailed(err.message);
 }
