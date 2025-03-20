@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: rex-7567-e27
-        uses: mbaraa/rex-action@v1.6.3
+        uses: mbaraa/rex-action@v1.6.4
         with:
           server-url: example.com
           token: ${{ secrets.REX_KEY }}
@@ -60,6 +60,8 @@ jobs:
           commit-sha: ${{ github.sha }}
           # latest-tag is optional :)
           latest-tag: ${{ github.ref }}
+          # compose-file-name is optional :)
+          compose-file-name: "docker-compose-prod.yml"
 ```
 
 3.  Do a push and see the magic happen
